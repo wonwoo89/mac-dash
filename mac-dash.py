@@ -33,7 +33,7 @@ import time
 import unicodedata
 from ctypes import POINTER, byref, c_int, c_size_t, c_uint, c_void_p
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 # Border styles.
 #
@@ -1451,9 +1451,6 @@ def main():
     if args.ascii or os.environ.get("MAC_DASH_ASCII"):
         G.update(GLYPH_ASCII)
 
-    # when invoked as memtui, start in the memory view (keeps the old habit working)
-    if os.path.basename(sys.argv[0]).startswith("memtui") and args.view == "all":
-        args.view = "mem"
     if args.view == "cpu" and "-s" not in sys.argv and "--sort" not in sys.argv:
         args.sort = "cpu"
 
